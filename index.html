@@ -94,15 +94,16 @@
             perOp: ''
 
         });
-        // handle clear button 
         function handleClear(){
-          setCalc( {
-            current: '0',
-            total: '',
-            isInitial: 'true',
-            perOp: ''
-          });
-        }
+    setCalc({
+        current: '0',
+        total: '',
+        total: '0',
+        isInitial: true,
+        preOp:''
+    });
+}
+
 // handle an operator when a button is clicked
 function handleOperator(value){
     const total = doCalculation();
@@ -137,7 +138,6 @@ function doCalculation(){
     }
     return total;
 }
-
     return(
         <div className="calculator">
             <div className="display">{calc.current}</div>
@@ -168,11 +168,11 @@ function doCalculation(){
         </div>
     );
 }
-    // child component
-    function CalcButton(props) {
-        return (
-            <button className={props.className} onClick={() => props.onClick(props.value)}>{props.value}</button>
-        );
-    }
-    ReactDOM.render(<div className="app-container"><Calculator /></div>, document.getElementById("app"));
+// child component
+function CalcButton(props){
+    return(
+        <button className={props.className} onClick={()=>props.onClick(props.value)}>{props.value}</button>
+    );
+}
+ReactDOM.render(<div className="app-container"><Calculator/></div>, document.getElementById("app"));
 </script>
