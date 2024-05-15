@@ -18,7 +18,7 @@
         padding-top: 5px;
         padding-left: 10px;
         height: 50px;
-        font size:40px;
+        font-size:40px;
     }
 
     button {
@@ -89,12 +89,23 @@
         // const [display,setDisplay] = React.useState('0');
         //useState
         const [calc, setCalc] = React.useState({
-            current: '7',
+            current: '0',
             total: '',
             isInitial: 'true',
             perOp: ''
 
         });
+
+        // handle clear button 
+         function handleClear (){
+          setCalc(){
+            const [calc, setCalc] = React.useState({
+            current: '0',
+            total: '',
+            isInitial: 'true',
+            perOp: ''
+          }};
+
 
         return (
             <div className="calculator">
@@ -115,7 +126,7 @@
                 <CalcButton value="3" onClick={handleNumber}/>
                 <CalcButton className="operator" value="+" />
 
-                <CalcButton value="C" />
+                <CalcButton value="C" onClick={handleClear} />
                 <CalcButton value="0" onClick={handleNumber}/>
                 <CalcButton className="operator" value="=" />
                 <CalcButton className="operator" value="-" />
